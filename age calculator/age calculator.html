@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        
+    </head>
+    <style>
+        img{
+            height: 500px;
+            width: 500px;
+             
+        }
+        .date{
+            font-style: italic;
+            color:rgb(20, 20, 20);
+            font-size:x-large;
+            text-align: center;
+        }
+        body{
+            background-color: black;
+        }
+        #result{
+            text-align:center ;
+            color:rgb(107, 8, 67);
+
+        }
+        .neonText {
+  color: #fff;
+  text-shadow:
+      0 0 7px #060505,
+      0 0 10px #070707,
+      0 0 21px #121111,
+      0 0 42px rgb(96, 1, 86),
+      0 0 82px  rgb(66, 11, 67),
+      0 0 92px   rgb(62, 3, 74),
+      0 0 102px rgb(86, 5, 74),
+      0 0 151px rgb(61, 2, 66);
+}
+
+/* Additional styling */
+  
+body {
+  font-size: 18px;
+  font-family: "Vibur", sans-serif;
+  background-color: #000000;
+}  
+
+h1, h2 {
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 200;
+}
+  
+h1 {
+    font-size: 4.2rem;
+}
+  
+h2 {
+    font-size: 1.8rem;
+}
+body {
+            margin: 200px; /* Set the desired margin */
+            box-shadow: 0 0 20px #f317e0; /* Neon effect for the body */
+        }
+
+.container {
+  margin-top: 10vh;
+}
+              button,#birthdate{
+            
+            display: inline-block;
+            color: #dfdb0f;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            text-decoration: none;
+            font-size: 1em;
+            overflow: hidden;
+        }
+ 
+        /*creating animation effect*/
+        button:hover {
+            color: #111;
+            background: #790456;
+            box-shadow: 0 0 50px #f4f0f0;
+        }
+        #birthdate:hover {
+            color: #111;
+            background: #56033c;
+            box-shadow: 0 0 50px #fffffb;}
+        #birthdate {
+            width: 300px; /* Set the desired width */
+            height: 40px; /* Set the desired height */
+            font-size: 18px; /* Set the font size */
+        }
+ 
+            
+    </style>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Age Calculator</title>
+</head>
+  
+<body>
+    <div class="container"> 
+    <div class="date"> 
+    <center>
+    <h1 class="neonText">Age Calculator</h1>
+   <h1 class="neonText"> <label for="birthdate">Enter your birthdate:</label></h1>
+      <input type="date" id="birthdate">
+    <button onclick="calculateAge()">Submit</button>
+    <div id="result"></div></div>
+    </div></div>
+    </center>
+    <script>
+        function calculateAge() {
+            var birthdate = new Date(document.getElementById("birthdate").value);
+            var today = new Date();
+            var age = today.getFullYear() - birthdate.getFullYear();
+            var monthDiff = today.getMonth() - birthdate.getMonth();
+            if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthdate.getDate())) {
+                age--;
+            }
+
+            var resultContainer = document.getElementById("result");
+            resultContainer.innerHTML = "You are " + age + " years old.";
+
+            // Check if it's the user's birthday
+            if (today.getMonth() === birthdate.getMonth() && today.getDate() === birthdate.getDate()) {
+                var img = document.createElement("img");
+                img.src = "https://media.istockphoto.com/id/1455688101/video/happy-birthday-to-you-text-with-purple-neon-style.jpg?s=640x640&k=20&c=AP2UcEn0D-ois9A5yGkXCsdP5x8rNgwivowDiSVyLnk=";
+                img.alt = "Happy Birthday!";
+                resultContainer.appendChild(img);
+            }
+        }
+    </script>
+ <div class="box bulb-group"></div>
+</body>
+
+</html>
